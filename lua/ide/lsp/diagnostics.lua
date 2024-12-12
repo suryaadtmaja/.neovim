@@ -28,9 +28,11 @@ M.setup = function()
 			},
 		},
 	})
-	vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+	-- vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+	vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 	vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_prev)
 	vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
+	vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 end
 
 return M

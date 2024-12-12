@@ -36,6 +36,18 @@ return {
       -- use <leader> fc to search for merge conflicts
       { "<leader>fc", "<cmd>Telescope grep_string search=<<<<<<<<cr>", silent = true },
       {
+        "<leader>gf",
+        function ()
+          require('telescope.builtin').git_files({ desc = '[S]earch Git [F]iles'})
+        end,
+      },
+      {
+        "<leader>pf",
+        function ()
+          require('telescope.builtin').find_files({ desc = '[S]earch [F]iles'})
+        end,
+      },
+      {
         "<leader>sg",
         function()
           require("telescope").extensions.togglescope.live_grep({

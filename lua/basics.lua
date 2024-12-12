@@ -1,3 +1,5 @@
+
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -12,6 +14,8 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
+
+vim.opt.guifont = 'Hack Nerd Font'
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -74,3 +78,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+

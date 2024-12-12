@@ -16,6 +16,7 @@ vim.opt.swapfile = false
 vim.opt.termguicolors = true
 
 vim.opt.guifont = 'Hack Nerd Font'
+vim.o.guifont = 'Hack Nerd Font'
 
 -- Enable mouse mode
 vim.o.mouse = 'a'

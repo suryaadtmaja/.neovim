@@ -37,7 +37,7 @@ return {
 	keys = {
 		{ "gr", "<cmd>Trouble lsp_references toggle<cr>" },
 		{ "gd", "<cmd>Trouble lsp_definitions toggle<cr>" },
-		{ "gt", "<cmd>Trouble lsp_type_definitions toggle<cr>" },
+		{ "<leader>gt", "<cmd>Trouble lsp_type_definitions toggle<cr>" },
 		{
 			"<C-k>",
 			preview_previous_item
@@ -47,7 +47,7 @@ return {
 			preview_next_item
 		},
 		{
-			"<C-t>", close_or_open_with_diagnostics, { noremap = true }
+			"<C-g>", close_or_open_with_diagnostics, { noremap = true }
 		},
 	},
 	config = function()

@@ -5,18 +5,19 @@ return {
 		-- attach linters for filetypes
 		lint.linters_by_ft = {
 			css = { "stylelint" },
-			javascript = { "eslint" },
-			javascriptreact = { "eslint" },
-			typescript = { "eslint" },
-			typescriptreact = { "eslint" },
-			vue = { "eslint" },
-			svelte = { "eslint" },
+			javascript = { "eslint_d" },
+			javascriptreact = { "eslint_d" },
+			typescript = { "eslint_d" },
+			typescriptreact = { "eslint_d" },
+			vue = { "eslint_d" },
+			svelte = { "eslint_d" },
 			go = { "golangcilint" }
 		}
 		-- setup lua autocommand to lint when first opening, after inserting and when writing the buffer.
 		vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "BufEnter" }, {
 			callback = function()
-				require("lint").try_lint(nil, { ignore_errors = true })
+				require("lint").try_lint()
+				-- require("lint").try_lint(nil, { ignore_errors = true })
 			end,
 		})
 		vim.api.nvim_create_user_command("Lint", function()

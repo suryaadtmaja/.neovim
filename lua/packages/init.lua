@@ -14,7 +14,13 @@ return require("lazy").setup({
 		require("ui._alpha"),
 
 		-- undotree
-		require("tools._undotree")
+		require("tools._undotree"),
+
+		-- terminal
+		require("tools._toggleterm"),
+
+		--indent
+		require("ide._indent-blankline")
 	}),
 	load.on_insert_enter({
 		-- show colors next to color values

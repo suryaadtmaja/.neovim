@@ -14,12 +14,23 @@ return {
 			go = { "golangcilint" }
 		}
 		-- setup lua autocommand to lint when first opening, after inserting and when writing the buffer.
+		-- vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "BufEnter" }, {
+		-- 	callback = function()
+		-- 		require("lint").try_lint()
+		-- 		-- require("lint").try_lint(nil, { ignore_errors = true })
+		-- 	end,
+		-- })
 		vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "BufEnter" }, {
 			callback = function()
-				require("lint").try_lint()
-				-- require("lint").try_lint(nil, { ignore_errors = true })
+				local ok, err = pcall(function()
+					require("lint").try_lint()
+				end)
+				if not ok then
+					vim.notify("Linting error: " .. err, vim.log.levels.ERROR)
+				end
 			end,
 		})
+
 		vim.api.nvim_create_user_command("Lint", function()
 			require("lint").try_lint()
 		end, {})

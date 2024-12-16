@@ -5,7 +5,7 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		vim.g.skip_ts_context_commentstring_module = true
-		vim.cmd([[autocmd BufRead,BufEnter *.astro set filetype=astro]])
+		-- vim.cmd([[autocmd BufRead,BufEnter *.astro set filetype=astro]])
 		require("nvim-treesitter.configs").setup({
 			modules = {},
 			auto_install = true,

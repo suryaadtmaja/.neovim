@@ -65,10 +65,12 @@ return {
 			},
 			filesystem = {
 				filtered_items = {
+					visible = true,
 					hide_by_name = {
 						".DS_Store",
 						"thumbs.db",
 						"node_modules",
+						".package-lock.json"
 					},
 				},
 				hijack_netrw_behavior = "disabled",

@@ -31,6 +31,7 @@ return {
 				lualine_y = {
 					require("ui._lualine.formatting_status"),
 					require("ui._lualine.copilot_status"),
+					require("prayertime").get_status,
 				},
 			},
 		})

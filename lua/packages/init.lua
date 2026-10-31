@@ -20,7 +20,10 @@ return require("lazy").setup({
 		require("tools._toggleterm"),
 
 		--indent
-		require("ide._indent-blankline")
+		require("ide._indent-blankline"),
+
+		--_double-slash
+		require("ide._double-slash")
 	}),
 	load.on_insert_enter({
 		-- show colors next to color values
@@ -48,6 +51,7 @@ return require("lazy").setup({
 		-- *********** Triggered by CMDs *************
 		-- comment plugin by tpope.
 		require("tools._commentary"),
+		require("ui._prayertime"),
 	}),
 	load.on_buf_read({
 		-- setup lsps
@@ -66,6 +70,8 @@ return require("lazy").setup({
 		"tpope/vim-repeat",
 		-- git plugin by tpope
 		require("tools._fugitive"),
+		-- code companion plugin
+		require("tools._codecompanion"),
 		-- Treesitter
 		require("ide._treesitter"),
 		-- github copilot because ai

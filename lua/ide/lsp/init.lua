@@ -11,25 +11,25 @@ return {
 		require("neoconf").setup({})
 		require("neodev").setup({})
 		require("mason").setup()
-		local server_settings = require("ide.lsp.servers")
 
-		require("mason-lspconfig").setup({
+		local server_settings = require("ide.lsp.servers")
+		local mlsp = require("mason-lspconfig")
+
+		mlsp.setup({
 			ensure_installed = server_settings.default_servers,
 		})
-		local lspconfig = require("lspconfig")
 
-		server_settings.setup()
+		for _, server_name in ipairs(mlsp.get_installed_servers()) do
+			if not server_settings.is_disabled(server_name) then
+				vim.lsp.config(
+					server_name,
+					server_settings.get_config(server_name)
+				)
 
-		require("mason-lspconfig").setup_handlers({
-			function(server_name)
-				if server_settings.is_disabled(server_name) then
-					return
-				end
-				lspconfig[server_name].setup(server_settings.get_config(server_name))
-			end,
-		})
+				vim.lsp.enable(server_name)
+			end
+		end
 
-		-- setup diagnostics
 		require("ide.lsp.diagnostics").setup()
 	end,
 }

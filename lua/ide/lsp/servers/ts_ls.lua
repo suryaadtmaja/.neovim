@@ -1,6 +1,7 @@
 return {
 	init_options = {
 		plugins = {
+			e -- vue_plugin
 			-- {
 			-- 	name = "@vue/typescript-plugin",
 			-- 	location = vim.fn.stdpath("data")
@@ -16,11 +17,9 @@ return {
 		},
 	},
 	filetypes = {
-		'javascript',
-		'javascriptreact',
-		'javascript.jsx',
-		'typescript',
-		'typescriptreact',
-		'typescript.tsx',
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
 	},
 }
